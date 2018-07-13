@@ -2,13 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/margin_medium_2"
     android:paddingTop="4dp">
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="[Tech Talk Vol.23] How Much Storage Is Really Needed in A Smartphone?" />
+        android:textSize="@dimen/text_regular_2x"
+        android:text="[Tech Talk Vol.23] How Much Storage Is Really Needed in A Smartphone?"
+        android:textColor="@color/primary_text"/>
 
     <ImageView
         android:id="@+id/iv_image"
@@ -20,52 +24,82 @@
         android:src="@drawable/techtalk" />
 
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_image"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_small">
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_infotype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pretty jssharma" />
+            tools:background="@drawable/rectangle"
+            android:text="Original"
+            android:padding="@dimen/margin_small"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_smaller"
+            />
+
+        <TextView
+            android:id="@+id/tv_authorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pretty jssharma"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:textSize="@dimen/text_smaller"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_medium_2"
-            android:background="@drawable/ic_picture_in_picture_alt_black_24dp" />
+            android:background="@drawable/ic_picture_in_picture_alt_black_24dp"
+            android:layout_marginTop="@dimen/margin_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5302"
+            android:textSize="@dimen/text_smaller"
+            android:layout_marginLeft="@dimen/margin_small"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:background="@drawable/ic_chat_black_24dp"
+            android:layout_marginTop="@dimen/margin_small"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_small"
-            android:text="5302" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:background="@drawable/ic_chat_black_24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_small"
+            android:textSize="@dimen/text_smaller"
             android:text="229" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:background="@drawable/ic_thumb_up_24dp" />
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:background="@drawable/ic_thumb_up_24dp"
+            android:layout_marginTop="@dimen/margin_small"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/text_smaller"
+            android:layout_marginLeft="@dimen/margin_small"
             android:text="56" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/secondary"
+        android:layout_below="@id/linearlayout"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        />
 
 </RelativeLayout>

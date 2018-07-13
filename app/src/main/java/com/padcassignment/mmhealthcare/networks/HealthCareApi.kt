@@ -10,7 +10,7 @@ import retrofit2.http.POST
 interface NewsApi
 {
     @FormUrlEncoded
-    @POST(HealthCareConstants.GET_NEWS)
+    @POST(HealthCareConstants.GET_HEALTHCARE)
     fun loadNews(
             @Field("access_token") accessToken: String) : Call<GetHealthCareResponse>
 }

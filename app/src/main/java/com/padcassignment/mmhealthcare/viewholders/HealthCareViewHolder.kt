@@ -14,16 +14,18 @@ class HealthCareViewHolder(itemView: View , private val healthDelegate : HealthC
 
         itemView.tv_title!!.text = data.title
 
-        itemView.tv_name!!.text=data.author!!.authorName
+        itemView.tv_authorname!!.text=data.author!!.authorName
 
             Glide.with(itemView.context)
                     .load(data.image)
                     .into(itemView.iv_image)
 
+        itemView.tv_infotype!!.text = data.infoType
+
     }
 
     override fun onClick(p0: View?) {
-        healthDelegate.onTapNews(healthData)
+        healthDelegate.onTapHealthCare(healthData)
     }
 
 }

@@ -10,6 +10,6 @@ class HealthCareVO(@SerializedName("id") var id:Int = 0 ,
                        @SerializedName("short-description") var shortDescription: String ="",
                        @SerializedName("published-date") var publishedDate: String="",
                        @SerializedName("complete-url") var completeUrl: String="",
-                       @SerializedName("info-type") var article: String="")
+                       @SerializedName("info-type") var infoType: String="")
 {
 }

@@ -42,7 +42,7 @@ class HealthCareModel
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     fun onNewsLoadedEvent(newsLoadedEvent: SuccessEvent.NewsLoadedEvent) {
-        for (news: HealthCareVO in newsLoadedEvent.loadedNews) {
+        for (news: HealthCareVO in newsLoadedEvent.loadedHealthCare) {
             healthCareDate[news.id] = news
         }
 
