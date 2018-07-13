@@ -58,7 +58,7 @@ class MainActivity : BaseActivity(), HealthCareDelegate {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onSuccessGetHealthCare(healthcareLoadedEvent: SuccessEvent.NewsLoadedEvent){
+    fun onSuccessGetHealthCare(healthcareLoadedEvent: SuccessEvent.HealthCareLoadedEvent){
         healthCareAdapter!!.appendNewData(healthcareLoadedEvent.loadedHealthCare as MutableList<HealthCareVO>)
         swipeRefreshLayout.isRefreshing = false
     }

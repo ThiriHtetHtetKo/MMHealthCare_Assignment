@@ -5,5 +5,5 @@ import com.padcassignment.mmhealthcare.datas.models.HealthCareVO
 
 interface HealthCareDelegate
 {
-    fun onTapHealthCare(news: HealthCareVO?)
+    fun onTapHealthCare(healthCare: HealthCareVO?)
 }

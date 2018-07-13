@@ -28,7 +28,7 @@ class GetHealthCareResponse
         {
             healthCareList = ArrayList<HealthCareVO>()
         }
-        val newsListVal = healthCareList
-        return newsListVal!!
+        val healthCareListVal = healthCareList
+        return healthCareListVal!!
     }
 }

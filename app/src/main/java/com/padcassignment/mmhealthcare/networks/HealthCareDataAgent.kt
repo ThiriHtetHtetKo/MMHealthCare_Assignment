@@ -28,7 +28,7 @@ class HealthCareDataAgent {
         }
     }
 
-    private val healthCareApi: NewsApi
+    private val healthCareApi: HealthCareApi
 
     private constructor() {
         val okHttpClient = OkHttpClient.Builder()
@@ -42,25 +42,25 @@ class HealthCareDataAgent {
                 .client(okHttpClient)
                 .build()
 
-        healthCareApi = retrofit.create(NewsApi::class.java)
+        healthCareApi = retrofit.create(HealthCareApi::class.java)
     }
     fun loadHealthCare(accessToken: String){
-        val newsResponseCall = healthCareApi.loadNews(accessToken)
-        newsResponseCall.enqueue(object : Callback<GetHealthCareResponse> {
+        val healthCareResponseCall = healthCareApi.loadHealthCare(accessToken)
+        healthCareResponseCall.enqueue(object : Callback<GetHealthCareResponse> {
             override fun onFailure(call: Call<GetHealthCareResponse>?, t: Throwable?) {
                 EventBus.getDefault().post(ErrorEvent.ApiErrorEvent(t))
             }
 
             override fun onResponse(call: Call<GetHealthCareResponse>, response: Response<GetHealthCareResponse>) {
-                val newsResponse: GetHealthCareResponse? = response.body()
-                if (newsResponse != null
-                        && newsResponse.getCode() == 200
-                        && newsResponse.getList().isNotEmpty()) {
-                    val newsLoadedEvent = SuccessEvent.NewsLoadedEvent( newsResponse.getList())
-                    EventBus.getDefault().post(newsLoadedEvent)
+                val healthCareResponse: GetHealthCareResponse? = response.body()
+                if (healthCareResponse != null
+                        && healthCareResponse.getCode() == 200
+                        && healthCareResponse.getList().isNotEmpty()) {
+                    val healthCareLoadedEvent = SuccessEvent.HealthCareLoadedEvent( healthCareResponse.getList())
+                    EventBus.getDefault().post(healthCareLoadedEvent)
                 } else {
-                    if(newsResponse != null)
-                        EventBus.getDefault().post(SuccessEvent.EmptyDataLoadedEvent(newsResponse.getMessage()))
+                    if(healthCareResponse != null)
+                        EventBus.getDefault().post(SuccessEvent.EmptyDataLoadedEvent(healthCareResponse.getMessage()))
                     else
                         EventBus.getDefault().post(SuccessEvent.EmptyDataLoadedEvent())
                 }
